@@ -9,7 +9,7 @@
         "packages/extension/vue-dist/*"
     ],
     "verbose": true,
-    "delay": 2500,
+    "delay": 250,
     "watch": ["packages/*"],
     "env": {
         "NODE_ENV": "development"

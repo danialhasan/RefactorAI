@@ -1,11 +1,15 @@
 <template>
     <div class="">
-        <button @click="increment">increment!!! {{ counter }}</button>
+        <code-input></code-input>
+        <code-output></code-output>
+        <code-prompt></code-prompt>
     </div>
 </template>
 
 <script lang="ts">
-import Input from "@/components/CodeInput.vue";
+import CodeInput from "@/components/CodeInput.vue";
+import CodeOutput from "@/components/CodeOutput.vue";
+import CodePrompt from "@/components/CodePrompt.vue";
 export default {
     name: "App",
     data: () => ({
@@ -22,7 +26,9 @@ export default {
         },
     },
     components: {
-        Input,
+        CodeInput,
+        CodeOutput,
+        CodePrompt,
     },
 };
 </script>
