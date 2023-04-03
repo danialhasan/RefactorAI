@@ -11,6 +11,7 @@ export default defineConfig({
     plugins: [vue()],
     build: {
         outDir: "../extension/vue-dist",
+        assetsDir: "tailwind_assets",
         rollupOptions: {
             output: {
                 entryFileNames: `assets/[name].js`,

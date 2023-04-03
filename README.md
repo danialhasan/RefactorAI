@@ -11,13 +11,13 @@ An easy solution for building visual studio code extensions using vue and vite e
 ### Install dependencies
 
 ```bash
-yarn
+npm
 ```
 
 For running project in development mode use
 
 ```bash
-yarn watch
+npm watch
 ```
 
 ### Adding more commands

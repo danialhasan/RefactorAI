@@ -4,13 +4,15 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "tailwind:build": "tailwindcss -i ./src/styles/input.css -o ../extension/vue-dist/assets/index.css --minify"
     },
     "dependencies": {
         "vue": "^3.2.25"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^2.0.0",
+        "tailwindcss": "^3.3.1",
         "vite": "^2.7.2"
     }
 }
