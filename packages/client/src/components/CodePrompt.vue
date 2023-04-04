@@ -6,7 +6,7 @@
     <div class="mt-6 grid grid-cols-4 gap-4">
       <div
         class="bg-blue-900 flex flex-col items-center justify-center rounded-lg py-6"
-        @click="refactorCode"
+        @click="createRequest('refactor')"
       >
         <img
           :src="refactorIcon"
@@ -19,7 +19,7 @@
       </div>
       <div
         class="bg-blue-900 flex flex-col items-center justify-center rounded-lg py-4"
-        @click="explainCode"
+        @click="createRequest('explain')"
       >
         <img
           :src="explainIcon"
@@ -32,7 +32,7 @@
       </div>
       <div
         class="bg-blue-900 flex flex-col items-center justify-center rounded-lg py-4"
-        @click="debugCode"
+        @click="createRequest('debug')"
       >
         <img
           :src="debugIcon"
@@ -68,7 +68,9 @@ export default {
     this.explainIcon = explain_icon;
   },
   methods: {
+    async createRequest(reqType = 'refactor') {
 
+    }
   }
 };
 </script>
