@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="max-w-2xl flex flex-col">
         <code-input></code-input>
         <code-output></code-output>
         <code-prompt></code-prompt>

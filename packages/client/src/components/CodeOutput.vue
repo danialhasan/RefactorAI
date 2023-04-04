@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-4 w-screen bg-red-900">
+    <div class="grid grid-cols-4 w-full bg-red-900">
         <!-- This is the gray part! -->
         <div
             class="rounded-lg max-w-3xl bg-gray-800 p-6 shadow col-start-1 col-span-3"

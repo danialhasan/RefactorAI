@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-900 rounded-lg p-6">
+    <div class="w-full bg-gray-900 rounded-lg p-6">
         <h1 class="font-sans text-2xl font-bold text-white">Prompt</h1>
         <div class="mt-6 grid grid-cols-4 gap-4">
             <div
@@ -51,9 +51,7 @@ export default {
       }
   },
   mounted() {
-    console.log("MOUNTED!")
     const { debug_icon, refactor_icon, explain_icon } = storeIcons();
-    console.log(debug_icon);
     this.debugIcon = debug_icon;
     this.refactorIcon = refactor_icon;
     this.explainIcon = explain_icon;
