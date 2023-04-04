@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "scripts": {
         "dev": "vite",
-        "build": "vite build --emptyOutDir",
+        "build": "vite build ",
         "preview": "vite preview",
         "tailwind:build": "tailwindcss -i ./src/styles/input.css -o ../extension/vue-dist/assets/index.css --minify"
     },
