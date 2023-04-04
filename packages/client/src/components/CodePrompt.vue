@@ -6,7 +6,7 @@
                 class="bg-blue-900 flex flex-col items-center justify-center rounded-lg pb-4"
             >
                 <img
-                    src="../assets/refactor-icon.svg"
+                    :src="this.refactorIcon"
                     alt="Refactor Icon"
                     class="h-16 w-16 object-contain"
                 />
@@ -16,7 +16,7 @@
                 class="bg-blue-900 flex flex-col items-center justify-center rounded-lg pb-4"
             >
                 <img
-                    src="../assets/explain-icon.svg"
+                    :src="this.explainIcon"
                     alt="Explain Icon"
                     class="h-16 w-16 object-contain"
                 />
@@ -26,7 +26,7 @@
                 class="bg-blue-900 flex flex-col items-center justify-center rounded-lg pb-4"
             >
                 <img
-                    src="../assets/debug-icon.svg"
+                    :src="this.debugIcon"
                     alt="Debug Icon"
                     class="h-16 w-16 object-contain"
                 />
@@ -37,9 +37,26 @@
 </template>
 
 <script lang="js">
+import { storeIcons } from "@/helpers/helper.js"
 export default {
     name: "CodePrompt",
     props: {
     },
+
+  data: () => {
+    return {
+      debugIcon: "",
+      refactorIcon: "",
+      explainIcon:""
+      }
+  },
+  mounted() {
+    console.log("MOUNTED!")
+    const { debug_icon, refactor_icon, explain_icon } = storeIcons();
+    console.log(debug_icon);
+    this.debugIcon = debug_icon;
+    this.refactorIcon = refactor_icon;
+    this.explainIcon = explain_icon;
+    }
 };
 </script>
