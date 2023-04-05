@@ -3,7 +3,7 @@
     <h1 class="font-sans text-2xl font-bold text-white">
       Prompt
     </h1>
-    <div class="mt-6 grid grid-cols-4 gap-4">
+    <div class="mt-6 max-w-screen-md grid grid-cols-4 gap-4">
       <div
         class="bg-blue-900 flex flex-col items-center justify-center rounded-lg py-6"
         @click="createRequest('refactor')"
@@ -48,6 +48,8 @@
 </template>
 
 <script lang="js">
+import { mapActions } from 'pinia';
+import { useDataStore } from '@/stores/data.js';
 import { storeIcons } from '@/helpers/helper.js';
 export default {
   name: 'CodePrompt',
@@ -66,11 +68,10 @@ export default {
     this.debugIcon = debug_icon;
     this.refactorIcon = refactor_icon;
     this.explainIcon = explain_icon;
+    
   },
   methods: {
-    async createRequest(reqType = 'refactor') {
-
-    }
+    ...mapActions(useDataStore, ['createRequest'])
   }
 };
 </script>
