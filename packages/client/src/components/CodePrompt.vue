@@ -23,6 +23,14 @@
                 <img :src="debugIcon" alt="Debug Icon" class="h-16 w-16 object-contain" />
                 <p class="mt-2 font-bold text-white">Debug</p>
             </div>
+
+            <div
+                class="bg-blue-900 hover:bg-blue-800 active:bg-blue-700 flex flex-col items-center justify-center rounded-lg py-4"
+                @click="createRequest('')"
+            >
+                <img :src="customIcon" alt="Custom Icon" class="h-16 w-16 object-contain" />
+                <p class="mt-2 font-bold text-white">Custom Prompt</p>
+            </div>
         </div>
     </div>
 </template>
@@ -40,14 +48,16 @@ export default {
     return {
       debugIcon: '',
       refactorIcon: '',
-      explainIcon:''
+      explainIcon: '',
+      customIcon:''
     };
   },
   mounted() {
-    const { debug_icon, refactor_icon, explain_icon } = storeIcons();
+    const { debug_icon, refactor_icon, explain_icon, custom_icon } = storeIcons();
     this.debugIcon = debug_icon;
     this.refactorIcon = refactor_icon;
     this.explainIcon = explain_icon;
+    this.customIcon = custom_icon
 
   },
   methods: {

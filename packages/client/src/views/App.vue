@@ -27,7 +27,7 @@ export default {
     methods: {
         increment() {
             this.counter += 1;
-            // @ts-expect-error
+            // eslint-disable-next-line
             vscode.postMessage({
                 message: 'extension can listen to vue events by using postMessage method!',
             });

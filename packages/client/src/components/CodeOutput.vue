@@ -3,7 +3,7 @@
     <div class="w-full">
         <!-- This is the gray part! -->
         <div class="rounded-lg max-w-3xl bg-gray-800 p-6 shadow col-start-1 col-span-3">
-            <h1 class="mb-4 font-sans text-2xl font-bold text-gray-50">Out Code</h1>
+            <h1 class="mb-4 font-sans text-2xl font-bold text-gray-50">Output Code</h1>
             <textarea
                 readonly
                 style="resize: vertical"

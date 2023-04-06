@@ -35,7 +35,7 @@ export default {
     ...mapWritableState(useDataStore, ['codeInputValue'])
   },
   watch: {
-    codeInputValue(newVal, oldVal) {
+    codeInputValue(newVal) {
       this.codeInputValue = newVal;
     }
   }

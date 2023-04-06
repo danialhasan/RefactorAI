@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
 const cp = require('child_process');
-const util = require('util');
+// const util = require('util');
 
 const childOptions = {
     shell: 'bash',
     stdio: 'inherit',
 };
 
-const exec = util.promisify(cp.exec);
+// const exec = util.promisify(cp.exec);
 
 (async () => {
     try {
