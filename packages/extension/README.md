@@ -1,71 +1,62 @@
-# venom-gui-extension README
+# RefactorAI
 
-This is the README for your extension "venom-gui-extension". After writing up a brief description, we recommend including the following sections.
+RefactorAI is a Visual Studio Code extension that allows engineers and developers to refactor, debug, and explain their code using natural language processing. With RefactorAI, you can quickly generate AI-generated responses that can help you improve your code quality and solve complex programming problems.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Refactor: Refactor your code using AI-generated suggestions.
+- Debug: Debug your code using AI-generated suggestions.
+- Explain: Get an AI-generated explanation of your code.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+To install RefactorAI, follow these steps:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Open Visual Studio Code.
+2. Click on the Extensions icon in the sidebar (or press `Ctrl+Shift+X`).
+3. Search for "RefactorAI" in the search bar.
+4. Click on the "Install" button next to RefactorAI.
+5. Wait for the installation to complete.
+
+Alternatively, you can download the extension from the Visual Studio Code Marketplace and install it manually.
+
+## Usage
+
+To use RefactorAI, follow these steps:
+
+1. Type "Activate RefactorAI" into the command palette (or press `Ctrl+Shift+P` and search for "Activate RefactorAI").
+2. Paste your code into the input box that appears.
+3. Press either the "Refactor", "Debug", or "Explain" button.
+4. Wait for the AI-generated response to appear.
+
+You can also use keybindings or add RefactorAI to your toolbar for quicker access.
+
+## Roadmap
+
+RefactorAI is a new tool, and its roadmap is TBD. It will be updated here.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+RefactorAI requires an internet connection and a valid API key to use. You can obtain an API key from our website (link TBD).
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-- `myExtension.enable`: enable/disable this extension
-- `myExtension.thing`: set to `blah` to do something
+RefactorAI does not have any configurable settings at this time.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+There are no known issues with RefactorAI at this time. If you encounter any problems, please report them on our GitHub page (link TBD).
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
+- Initial release of RefactorAI.
 
-### 1.0.1
+## Contributing
 
-Fixed issue #.
+We welcome contributions to RefactorAI! If you would like to contribute, please fork the repository and submit a pull request. See our CONTRIBUTING.md file for more information.
 
-### 1.1.0
+## License
 
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-- [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-- Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-- Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-- Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+RefactorAI is licensed under the MIT License. See the LICENSE file for more information.
