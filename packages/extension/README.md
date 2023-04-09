@@ -7,6 +7,7 @@ RefactorAI is a Visual Studio Code extension that allows engineers and developer
 - Refactor: Refactor your code using AI-generated suggestions.
 - Debug: Debug your code using AI-generated suggestions.
 - Explain: Get an AI-generated explanation of your code.
+- Custom: Add a custom prompt. 
 
 ## Installation
 
@@ -49,9 +50,11 @@ There are no known issues with RefactorAI at this time. If you encounter any pro
 
 ## Release Notes
 
-### 1.0.0
+### 0.0.3 
 
-- Initial release of RefactorAI.
+- Added loader
+- Added additional 'custom prompt' button
+- Added hover and active effects for prompt buttons 
 
 ## Contributing
 

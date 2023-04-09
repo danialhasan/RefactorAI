@@ -4,3 +4,5 @@
 /packages/extension/vue-dist
 /packages/client/dist
 /packages/extension/dist
+**/.DS_Store
+**/*.vsix
