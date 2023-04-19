@@ -24,5 +24,13 @@ export const useDataStore = defineStore('data', {
                 console.error('There was a problem!\n', error);
             }
         },
+        async writeToMemento() {
+            // Write to extension package, then write to Memento from there.
+            // console.log('Writing to Memento:', this.$state);
+            // eslint-disable-next-line no-undef
+            await vscode.postMessage({
+                message: 'Hello world!',
+            });
+        },
     },
 });

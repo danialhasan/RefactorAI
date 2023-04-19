@@ -16,7 +16,7 @@ Input your code here!</textarea
 </template>
 
 <script lang="js">
-import { mapWritableState } from 'pinia';
+import { mapWritableState, mapActions} from 'pinia';
 import { useDataStore } from '@/stores/data.js';
 export default {
   name: 'CodeInput',
@@ -32,12 +32,17 @@ export default {
     };
   },
   computed: {
-    ...mapWritableState(useDataStore, ['codeInputValue'])
+    ...mapWritableState(useDataStore, ['codeInputValue']),
   },
   watch: {
     codeInputValue(newVal) {
       this.codeInputValue = newVal;
+      this.writeToMemento()
     }
-  }
+  },
+  methods: {
+    ...mapActions(useDataStore, ['writeToMemento'])
+
+  },
 };
 </script>

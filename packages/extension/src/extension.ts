@@ -2,7 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as path from 'path';
-
+import { LocalStorageService } from './helpers/localStorageService';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -21,6 +21,14 @@ export function activate(context: vscode.ExtensionContext) {
         panel.webview.onDidReceiveMessage(
             async ({ message }) => {
                 vscode.window.showInformationMessage(message);
+                if (message.backendResponse) {
+                    // save to memento
+                    const storageService = LocalStorageService(context.workspaceState);
+                    storageService.setValue('backendResponse', message.backendResponse);
+                    let backendResponse: string | null = storageService.getValue('backendResponse');
+                    // @ts-expect-error
+                    vscode.window.showInformationMessage(backendResponse);
+                }
             },
             undefined,
             context.subscriptions
