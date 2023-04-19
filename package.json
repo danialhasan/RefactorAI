@@ -9,6 +9,7 @@
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-vue": "^7.20.0",
+        "husky": "^8.0.3",
         "lerna": "^4.0.0",
         "nodemon": "^2.0.15",
         "prettier": "^2.8.7",
@@ -20,5 +21,10 @@
         "watch": "nodemon pipeline.js",
         "lint:fix": "eslint . --fix --ext .ts,.js,.vue --ignore-path .gitignore --config .eslintrc.js",
         "package": "echo '⚠️ ⚠️ ⚠️ REMEMBER TO UPDATE VERSION IN EXTENSION PACKAGE.JSON!!!' && cd packages/extension && vsce package"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint:fix"
+        }
     }
 }
