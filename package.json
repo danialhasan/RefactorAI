@@ -21,11 +21,6 @@
         "watch": "nodemon pipeline.js",
         "lint:fix": "eslint . --fix --ext .ts,.js,.vue --ignore-path .gitignore --config .eslintrc.js",
         "package": "echo '⚠️ ⚠️ ⚠️ REMEMBER TO UPDATE VERSION IN EXTENSION PACKAGE.JSON!!!' && cd packages/extension && vsce package",
-        "prepare":"husky install"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run lint:fix"
-        }
+        "prepare": "husky install"
     }
 }

@@ -18,9 +18,9 @@ export const useDataStore = defineStore('data', {
                 const response = await axios.post(endpoint, {
                     prompt: `${prompt}: ${this.codeInputValue}`,
                 });
-                                    this.backendResponse = response.data.message.content;
-console.log('OpenAI Response! ', response);
-    } catch (error) {
+                this.backendResponse = response.data.message.content;
+                console.log('OpenAI Response! ', response);
+            } catch (error) {
                 console.error('There was a problem!\n', error);
             }
         },
