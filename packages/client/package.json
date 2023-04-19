@@ -1,25 +1,26 @@
 {
-  "name": "RefactorAI",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build ",
-    "preview": "vite preview",
-    "tailwind:build": "tailwindcss -i ./src/styles/input.css -o ../extension/vue-dist/assets/index.css --minify"
-  },
-  "dependencies": {
-    "axios": "^1.3.5",
-    "pinia": "^2.0.33",
-    "vue": "^3.2.25"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^2.0.0",
-    "eslint": "^8.37.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.10.0",
-    "prettier": "^2.8.7",
-    "tailwindcss": "^3.3.1",
-    "vite": "^2.7.2"
-  }
+    "name": "RefactorAI",
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build ",
+        "preview": "vite preview",
+        "tailwind:build": "tailwindcss -i ./src/styles/input.css -o ../extension/vue-dist/assets/index.css --minify"
+    },
+    "dependencies": {
+        "axios": "^1.3.5",
+        "pinia": "^2.0.33",
+        "vue": "^3.2.25"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^2.0.0",
+        "eslint": "^8.37.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-vue": "^9.10.0",
+        "husky": "^8.0.3",
+        "prettier": "^2.8.7",
+        "tailwindcss": "^3.3.1",
+        "vite": "^2.7.2"
+    }
 }
