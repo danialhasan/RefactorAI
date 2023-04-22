@@ -18,16 +18,21 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.window.showInformationMessage('Opening vue generated webview inside extension!');
         const panel = prepareWebView(context);
 
+        const storageService = LocalStorageService(context.workspaceState);
         panel.webview.onDidReceiveMessage(
             async ({ message }) => {
                 vscode.window.showInformationMessage(message);
                 if (message.backendResponse) {
                     // save to memento
-                    const storageService = LocalStorageService(context.workspaceState);
                     storageService.setValue('backendResponse', message.backendResponse);
+                    storageService.setValue('codeInputValue', message.codeInputValue);
+                } else {
+                    // message must be to get all data in storage
                     let backendResponse: string | null = storageService.getValue('backendResponse');
-                    // @ts-expect-error
-                    vscode.window.showInformationMessage(backendResponse);
+                    let codeInputValue: string | null = storageService.getValue('codeInputValue');
+                    // @ts-ignore
+                    vscode.window.showInformationMessage(codeInputValue, backendResponse);
+                    panel.webview.postMessage({ codeInputValue, backendResponse });
                 }
             },
             undefined,

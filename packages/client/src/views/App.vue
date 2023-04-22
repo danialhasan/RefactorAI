@@ -10,10 +10,12 @@
     </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import CodeInput from '@/components/CodeInput.vue';
 import CodeOutput from '@/components/CodeOutput.vue';
 import CodePrompt from '@/components/CodePrompt.vue';
+import {firestore} from '@/helpers/firebaseConfig.js';
+// @ts-ignore
 export default {
     name: 'App',
     components: {
@@ -24,14 +26,15 @@ export default {
     data: () => ({
         counter: 0,
     }),
-    methods: {
-        increment() {
-            this.counter += 1;
-            // eslint-disable-next-line
-            vscode.postMessage({
-                message: 'extension can listen to vue events by using postMessage method!',
-            });
-        },
+    watch: {},
+    mounted() {
+        // On mount, load the input/output data from memento.
+        console.log("Firestore: ", firestore)
+        window.addEventListener('message', async (event) => {
+            const message = event.data;
+            console.log('MESSAGE!!', message);
+        });
     },
+    methods: {},
 };
 </script>

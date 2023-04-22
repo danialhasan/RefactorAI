@@ -29,7 +29,7 @@ export const useDataStore = defineStore('data', {
             // console.log('Writing to Memento:', this.$state);
             // eslint-disable-next-line no-undef
             await vscode.postMessage({
-                message: 'Hello world!',
+                message: JSON.stringify(this.$state),
             });
         },
     },
