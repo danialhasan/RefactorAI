@@ -1,6 +1,8 @@
 // stores/counter.js
 import { defineStore } from 'pinia';
 import axios from 'axios';
+// eslint-disable-next-line no-unused-vars
+import { devEndpoint, prodEndpoint } from '../helpers/endpoint';
 
 export const useDataStore = defineStore('data', {
     state: () => {
@@ -11,9 +13,10 @@ export const useDataStore = defineStore('data', {
     actions: {
         async createRequest(prompt) {
             try {
+                console.log('NODE_ENV: ', process.env.NODE_ENV);
+                console.log('TEST ENV VAR: ', process.env.MY_ENV_VAR_1);
                 // Prompt example: "Refactor: let x = 5; console.log('this is x:', x)"
-                const endpoint = 'https://refactorai-server.herokuapp.com/api';
-                // const endpoint = 'http://localhost:3000/api';
+                const endpoint = prodEndpoint;
                 this.backendResponse = 'Thinking...';
                 const response = await axios.post(endpoint, {
                     prompt: `${prompt}: ${this.codeInputValue}`,
