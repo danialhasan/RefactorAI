@@ -21,17 +21,20 @@ export function activate(context: vscode.ExtensionContext) {
         const storageService = LocalStorageService(context.workspaceState);
         panel.webview.onDidReceiveMessage(
             async ({ message }) => {
+                message = JSON.parse(message);
                 vscode.window.showInformationMessage(message);
                 if (message.backendResponse) {
+                    console.log('SAVING TO MEMENTO', message);
                     // save to memento
                     storageService.setValue('backendResponse', message.backendResponse);
                     storageService.setValue('codeInputValue', message.codeInputValue);
                 } else {
+                    console.log('GETTING FROM MEMENTO', message);
                     // message must be to get all data in storage
                     let backendResponse: string | null = storageService.getValue('backendResponse');
                     let codeInputValue: string | null = storageService.getValue('codeInputValue');
                     // @ts-ignore
-                    vscode.window.showInformationMessage(codeInputValue, backendResponse);
+                    vscode.window.showInformationMessage({ codeInputValue, backendResponse });
                     panel.webview.postMessage({ codeInputValue, backendResponse });
                 }
             },
