@@ -23,17 +23,34 @@ export const useDataStore = defineStore('data', {
                 });
                 this.backendResponse = response.data.message.content;
                 console.log('OpenAI Response! ', response);
+                this.writeToMemento(this.$state);
             } catch (error) {
                 console.error('There was a problem!\n', error);
             }
         },
         async writeToMemento() {
-            // Write to extension package, then write to Memento from there.
-            // console.log('Writing to Memento:', this.$state);
-            // eslint-disable-next-line no-undef
-            await vscode.postMessage({
-                message: JSON.stringify(this.$state),
-            });
+            try {
+                console.log('Writing to memento:', this.$state);
+                // Write to extension package, then write to Memento from there.
+                // console.log('Writing to Memento:', this.$state);
+                // eslint-disable-next-line no-undef
+                await vscode.postMessage({
+                    message: JSON.stringify(this.$state),
+                });
+            } catch (error) {
+                console.error('There was a problem!\n ', error);
+            }
+        },
+        async getFromMemento() {
+            try {
+                console.log('getting from memento!');
+                // eslint-disable-next-line no-undef
+                await vscode.postMessage({
+                    message: '{}',
+                });
+            } catch (error) {
+                console.error('There was a problem!\n ', error);
+            }
         },
     },
 });
