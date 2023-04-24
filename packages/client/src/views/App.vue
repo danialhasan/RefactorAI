@@ -7,7 +7,7 @@
                 <code-output />
             </div>
         </div>
-        <button @click.prevent="getLastState">Click me to get last state!</button>
+        <!-- <button @click.prevent="getLastState">Click me to get last state!</button> -->
     </div>
 </template>
 
@@ -46,6 +46,7 @@ export default {
             this.codeInputValue = message.codeInputValue;
             this.backendResponse = message.backendResponse
         });
+        this.getLastState();
     },
     methods: {
         ...mapActions(useDataStore, ['getFromMemento']),
