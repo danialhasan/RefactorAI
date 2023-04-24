@@ -34,7 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
                     let backendResponse: string | null = storageService.getValue('backendResponse');
                     let codeInputValue: string | null = storageService.getValue('codeInputValue');
                     // @ts-ignore
-                    vscode.window.showInformationMessage({ codeInputValue, backendResponse });
+                    // vscode.window.showInformationMessage({ codeInputValue, backendResponse });
                     panel.webview.postMessage({ codeInputValue, backendResponse });
                 }
             },
