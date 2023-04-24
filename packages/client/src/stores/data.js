@@ -12,8 +12,8 @@ export const useDataStore = defineStore('data', {
         async createRequest(prompt) {
             try {
                 // Prompt example: "Refactor: let x = 5; console.log('this is x:', x)"
-                // const endpoint = https://refactorai-server.herokuapp.com/api
-                const endpoint = 'http://localhost:3000/api';
+                const endpoint = 'https://refactorai-server.herokuapp.com/api';
+                // const endpoint = 'http://localhost:3000/api';
                 this.backendResponse = 'Thinking...';
                 const response = await axios.post(endpoint, {
                     prompt: `${prompt}: ${this.codeInputValue}`,
