@@ -19,6 +19,8 @@ export function activate(context: vscode.ExtensionContext) {
         const panel = prepareWebView(context);
 
         const storageService = LocalStorageService(context.workspaceState);
+        storageService.setValue('backendResponse', "Hi, I'm RefactorAI. How can I help you today?");
+        storageService.setValue('codeInputValue', 'Type here...');
         panel.webview.onDidReceiveMessage(
             async ({ message }) => {
                 message = JSON.parse(message);
