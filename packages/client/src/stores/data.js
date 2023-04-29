@@ -16,9 +16,9 @@ export const useDataStore = defineStore('data', {
                 console.log('NODE_ENV: ', process.env.NODE_ENV);
                 console.log('TEST ENV VAR: ', process.env.MY_ENV_VAR_1);
                 // Prompt example: "Refactor: let x = 5; console.log('this is x:', x)"
-                const endpoint = prodEndpoint;
+                const endpoint = devEndpoint;
                 this.backendResponse = 'Thinking...';
-                const response = await axios.post(endpoint, {
+                const response = await axios.post(`${endpoint}/api`, {
                     prompt: `${prompt}: ${this.codeInputValue}`,
                 });
                 this.backendResponse = response.data.message.content;

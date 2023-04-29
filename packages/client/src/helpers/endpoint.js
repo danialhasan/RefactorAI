@@ -1,3 +1,3 @@
-const prodEndpoint = 'https://refactorai-server.herokuapp.com/api';
-const devEndpoint = 'http://localhost:3000/api';
+const prodEndpoint = 'https://refactorai-server.herokuapp.com';
+const devEndpoint = 'http://localhost:3000';
 export { devEndpoint, prodEndpoint };
