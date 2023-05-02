@@ -2,6 +2,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { getFunctions, httpsCallable } from 'firebase/functions';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,7 +24,8 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const firestore = getFirestore();
 const firebaseAuth = getAuth(firebaseApp);
-
+const functions = getFunctions(firebaseApp);
+const helloWorld = httpsCallable(functions, 'helloWorld');
 const document = doc(firestore, 'testCollection/WP0VRboOK0zANiYmvvAu');
 setDoc(document, {
     name: 'Danial Hasan',
@@ -32,4 +34,4 @@ setDoc(document, {
 });
 console.log('document: ', document);
 
-export { firestore, firebaseAuth };
+export { firestore, firebaseAuth, helloWorld };
