@@ -34,11 +34,16 @@ You can also use keybindings or add RefactorAI to your toolbar for quicker acces
 
 ## Roadmap
 
-RefactorAI is a new tool, and its roadmap is TBD. It will be updated here.
+RefactorAI is a new tool, and evolves every week. Here's a rough roadmap:
+
+[] Allow users to sign in with Gitub
+[] Enable streaming mode so responses come in word-by-word and not all at once
+[] Allow users to use their own API keys and AI models
+[] Allow users to submit context to the AI so it gradually learns their specific problems
 
 ## Requirements
 
-RefactorAI requires an internet connection and a valid API key to use. You can obtain an API key from our website (link TBD).
+RefactorAI requires an internet connection. In the future, it will require a valid API key to use. You can obtain an API key from our website (link TBD).
 
 ## Extension Settings
 
@@ -46,19 +51,14 @@ RefactorAI does not have any configurable settings at this time.
 
 ## Known Issues
 
-There are no known issues with RefactorAI at this time. If you encounter any problems, please report them on our GitHub page (link TBD).
+There are no known issues with RefactorAI at this time. If you encounter any issues, please report them to [03danialhasan@gmail.com]( 03danialhasan@gmail.com ) 
 
 ## Release Notes
 
-### 0.0.3 
+### 0.1.5
 
-- Added loader
-- Added additional 'custom prompt' button
-- Added hover and active effects for prompt buttons 
-
-## Contributing
-
-We welcome contributions to RefactorAI! If you would like to contribute, please fork the repository and submit a pull request. See our CONTRIBUTING.md file for more information.
+- Fixed panel switching bug
+- Added logo
 
 ## License
 
