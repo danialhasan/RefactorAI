@@ -55,10 +55,10 @@ There are no known issues with RefactorAI at this time. If you encounter any iss
 
 ## Release Notes
 
-### 0.1.5
+### 0.1.6
 
-- Fixed panel switching bug
-- Added logo
+- Updated readme 
+
 
 ## License
 
