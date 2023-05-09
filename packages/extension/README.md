@@ -58,6 +58,7 @@ There are no known issues with RefactorAI at this time. If you encounter any iss
 ### 0.1.6
 
 - Updated readme 
+- Fix API endpoint bug
 
 
 ## License
