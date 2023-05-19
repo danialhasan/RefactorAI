@@ -36,14 +36,14 @@ export default {
     watch: {},
     mounted() {
         // On mount, load the input/output data from memento.
-        this.runHelloWorld();
+        // this.runHelloWorld();
         window.addEventListener('message', async (event) => {
             const message = event.data;
             /**
              * Only set this if the fields are set to the default values.
              */
-            console.log('CodeInputValue: ', message.codeInputValue);
-            console.log('backendResponse: ', message.backendResponse);
+            // console.log('CodeInputValue: ', message.codeInputValue);
+            // console.log('backendResponse: ', message.backendResponse);
             this.codeInputValue = message.codeInputValue;
             this.backendResponse = message.backendResponse;
         });

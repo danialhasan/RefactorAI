@@ -9,15 +9,14 @@ export function activate(context: vscode.ExtensionContext) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
 
-    vscode.window.showInformationMessage('Congratulations, your extension "vue-3-vscode-webview" is now active!');
+    // vscode.window.showInformationMessage('Congratulations, your extension "vue-3-vscode-webview" is now active!');
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with registerCommand
     // The commandId parameter must match the command field in package.json
     let kindDisposable = vscode.commands.registerCommand(`vue-3-vscode-webview.createFlow`, () => {
-        
         // The code you place here will be executed every time your command is executed
         // Display a message box to the user
-        vscode.window.showInformationMessage('Opening vue generated webview inside extension!');
+        // vscode.window.showInformationMessage('Opening vue generated webview inside extension!');
         const panel = prepareWebView(context);
 
         const storageService = LocalStorageService(context.workspaceState);
@@ -28,12 +27,12 @@ export function activate(context: vscode.ExtensionContext) {
                 message = JSON.parse(message);
                 vscode.window.showInformationMessage(message);
                 if (message.backendResponse) {
-                    console.log('SAVING TO MEMENTO', message);
+                    // console.log('SAVING TO MEMENTO', message);
                     // save to memento
                     storageService.setValue('backendResponse', message.backendResponse);
                     storageService.setValue('codeInputValue', message.codeInputValue);
                 } else {
-                    console.log('GETTING FROM MEMENTO', message);
+                    // console.log('GETTING FROM MEMENTO', message);
                     // message must be to get all data in storage
                     let backendResponse: string | null = storageService.getValue('backendResponse');
                     let codeInputValue: string | null = storageService.getValue('codeInputValue');

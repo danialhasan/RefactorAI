@@ -26,12 +26,39 @@ export const useDataStore = defineStore('data', {
                 console.log('OpenAI Response! ', response);
                 this.writeToMemento(this.$state);
             } catch (error) {
-                console.error('There was a problem!\n', error);
+                console.error('There was a problem creating the non-stream server request!\n', error);
+            }
+        },
+        async createStreamRequest(prompt) {
+            try {
+                // console.log('NODE_ENV: ', process.env.NODE_ENV);
+                // console.log('TEST ENV VAR: ', process.env.MY_ENV_VAR_1);
+                // Prompt example: "Refactor: let x = 5; console.log('this is x:', x)"
+                const endpoint = prodEndpoint;
+                this.backendResponse = 'Thinking...';
+                // set up connection, then send POST request
+
+                // const response = await axios.post(`${endpoint}/api/stream`, {
+                //     prompt: `${prompt}: ${this.codeInputValue}`,
+                // });
+                const events = new EventSource(`${endpoint}/api/stream`);
+                axios.post(`${endpoint}/api/stream`, {
+                    prompt: `${prompt}: ${this.codeInputValue}`,
+                });
+                let response = '';
+                events.addEventListener('message', (message) => {
+                    console.log(message.data);
+                    response = `${response} ${message.data}`;
+                    this.backendResponse = response;
+                });
+                this.writeToMemento(this.$state);
+            } catch (error) {
+                console.error('There was a problem with creating the stream request!\n', error);
             }
         },
         async writeToMemento() {
             try {
-                console.log('Writing to memento:', this.$state);
+                // console.log('Writing to memento:', this.$state);
                 // Write to extension package, then write to Memento from there.
                 // console.log('Writing to Memento:', this.$state);
                 // eslint-disable-next-line no-undef
@@ -39,18 +66,18 @@ export const useDataStore = defineStore('data', {
                     message: JSON.stringify(this.$state),
                 });
             } catch (error) {
-                console.error('There was a problem!\n ', error);
+                console.error('There was a problem writing to Memento!\n ', error);
             }
         },
         async getFromMemento() {
             try {
-                console.log('getting from memento!');
+                // console.log('getting from memento!');
                 // eslint-disable-next-line no-undef
                 await vscode.postMessage({
                     message: '{}',
                 });
             } catch (error) {
-                console.error('There was a problem!\n ', error);
+                console.error('There was a problem with getting from Memento!\n ', error);
             }
         },
     },

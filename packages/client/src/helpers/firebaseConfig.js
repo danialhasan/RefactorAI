@@ -32,6 +32,6 @@ setDoc(document, {
     job: 'Software Engineer',
     age: 19,
 });
-console.log('document: ', document);
+// console.log('document: ', document);
 
 export { firestore, firebaseAuth, helloWorld };

@@ -4,21 +4,21 @@
         <div class="mt-6 max-w-screen-md grid grid-cols-4 gap-4">
             <div
                 class="bg-blue-900 flex flex-col hover:bg-blue-800 active:bg-blue-700 items-center justify-center rounded-lg py-6"
-                @click="createRequest('refactor')"
+                @click="createRequest('refactor all parts of this code')"
             >
                 <img :src="refactorIcon" alt="Refactor Icon" class="h-16 w-16 object-contain" />
                 <p class="mt-2 font-bold text-white">Refactor</p>
             </div>
             <div
                 class="bg-blue-900 hover:bg-blue-800 active:bg-blue-700 flex flex-col items-center justify-center rounded-lg py-4"
-                @click="createRequest('explain')"
+                @click="createRequest('explain all parts of this code')"
             >
                 <img :src="explainIcon" alt="Explain Icon" class="h-16 w-16 object-contain" />
                 <p class="mt-2 font-bold text-white">Explain</p>
             </div>
             <div
                 class="bg-blue-900 hover:bg-blue-800 active:bg-blue-700 flex flex-col items-center justify-center rounded-lg py-4"
-                @click="createRequest('debug')"
+                @click="createRequest('debug all lines of this code')"
             >
                 <img :src="debugIcon" alt="Debug Icon" class="h-16 w-16 object-contain" />
                 <p class="mt-2 font-bold text-white">Debug</p>
@@ -31,6 +31,13 @@
                 <img :src="customIcon" alt="Custom Icon" class="h-16 w-16 object-contain" />
                 <p class="mt-2 font-bold text-white">Custom Prompt</p>
             </div>
+            <a href="https://forms.gle/WovhUia6eJQ8NeSW6">
+                <div
+                    class="relative w-auto h-8 bg-gray-800 text-gray-100 top-2 m-auto px-4 pt-1 rounded-lg hover:cursor-pointer hover:bg-gray-600"
+                >
+                    LEAVE FEEDBACK HERE
+                </div>
+            </a>
         </div>
     </div>
 </template>
@@ -61,7 +68,7 @@ export default {
 
   },
   methods: {
-    ...mapActions(useDataStore, ['createRequest'])
+    ...mapActions(useDataStore, ['createRequest', 'createStreamRequest'])
   }
 };
 </script>
