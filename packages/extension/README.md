@@ -36,10 +36,22 @@ You can also use keybindings or add RefactorAI to your toolbar for quicker acces
 
 RefactorAI is a new tool, and evolves every week. Here's a rough roadmap:
 
-[] Allow users to sign in with Gitub
-[] Enable streaming mode so responses come in word-by-word and not all at once
-[] Allow users to use their own API keys and AI models
-[] Allow users to submit context to the AI so it gradually learns their specific problems
+-   [ ] Allow users to sign in with Gitub
+
+-   [ ] Enable streaming mode so responses come in word-by-word and not all at once
+
+-   [ ] Allow users to use their own API keys
+
+-   [ ] Allow users to select different AI models for the response
+
+    -   GPT-3.5
+    -   GPT-4
+
+-   [ ] Select code, then select RefactorAI function from context menu, and receive AI response in side pane webview
+
+-   [ ] Access file system (in restricted mode) to read Typescript declaration files, custom types, and typed packages
+
+-   [ ] Access file system (in restricted mode) to allow AI to gain context on how codebase works
 
 ## Requirements
 
@@ -55,10 +67,11 @@ There are no known issues with RefactorAI at this time. If you encounter any iss
 
 ## Release Notes
 
-### 0.2.0
--   Laid groundwork for streaming functionality (coming next update!)
+### 0.2.2
+
+-   Laid groundwork for streaming functionality (coming soon!)
 -   Added feedback form button (please use it!)
--   Made AI more thorough 
+-   Made AI more thorough
 -   Removed unnecessary dialog boxes
 -   Fixed API issues
 -   Fixed broken custom prompt button
