@@ -30,7 +30,7 @@ To use RefactorAI, follow these steps:
 3. Press either the "Refactor", "Debug", or "Explain" button.
 4. Wait for the AI-generated response to appear.
 
-You can also use keybindings or add RefactorAI to your toolbar for quicker access.
+In the future, you'll be able to use keybindings or add RefactorAI to your toolbar for quicker access.
 
 ## Roadmap
 
@@ -47,7 +47,7 @@ RefactorAI is a new tool, and evolves every week. Here's a rough roadmap:
     -   GPT-3.5
     -   GPT-4
 
--   [ ] Select code, then select RefactorAI function from context menu, and receive AI response in side pane webview
+-   [ ] Select code, then select RefactorAI function from context menu or press keybind, and receive AI response in side pane webview
 
 -   [ ] Access file system (in restricted mode) to read Typescript declaration files, custom types, and typed packages
 
