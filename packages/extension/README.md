@@ -75,6 +75,7 @@ There are no known issues with RefactorAI at this time. If you encounter any iss
 -   Removed unnecessary dialog boxes
 -   Fixed API issues
 -   Fixed broken custom prompt button
+-   Added new features to roadmap
 
 ## License
 
