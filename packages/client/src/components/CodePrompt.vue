@@ -26,7 +26,7 @@
 
             <div
                 class="bg-blue-900 hover:bg-blue-800 active:bg-blue-700 flex flex-col items-center justify-center rounded-lg py-4"
-                @click="createRequest('')"
+                @click="createStreamRequest('')"
             >
                 <img :src="customIcon" alt="Custom Icon" class="h-16 w-16 object-contain" />
                 <p class="mt-2 font-bold text-white">Custom Prompt</p>

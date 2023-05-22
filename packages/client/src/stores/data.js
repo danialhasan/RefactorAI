@@ -34,7 +34,7 @@ export const useDataStore = defineStore('data', {
                 // console.log('NODE_ENV: ', process.env.NODE_ENV);
                 // console.log('TEST ENV VAR: ', process.env.MY_ENV_VAR_1);
                 // Prompt example: "Refactor: let x = 5; console.log('this is x:', x)"
-                const endpoint = prodEndpoint;
+                const endpoint = devEndpoint;
                 this.backendResponse = 'Thinking...';
                 // set up connection, then send POST request
 
@@ -47,8 +47,21 @@ export const useDataStore = defineStore('data', {
                 });
                 let response = '';
                 events.addEventListener('message', (message) => {
-                    console.log(message.data);
-                    response = `${response} ${message.data}`;
+                    /**
+                     * If a token contains an apostrophe, we must connect it to the previous letter.
+                     * Which means we must delete the previous strings whitespace. We can just use
+                     * trimEnd() on the response string.
+                     */
+                    const trimmedData = message.data.trimStart();
+                    console.log(trimmedData);
+                    if (trimmedData.includes('Event stream established!') || trimmedData.includes('[DONE]')) {
+                        return;
+                    } else if (trimmedData.match(/[^\w\s]/)) {
+                        response = `${response.trimEnd()}${trimmedData}`;
+                        console.log('response: \n', response);
+                    } else {
+                        response = `${response} ${trimmedData}`;
+                    }
                     this.backendResponse = response;
                 });
                 this.writeToMemento(this.$state);
