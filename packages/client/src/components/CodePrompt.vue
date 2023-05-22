@@ -1,23 +1,23 @@
 <template>
-    <div class="w-full bg-gray-900 rounded-lg p-6">
+    <div class="w-full rounded-lg bg-gray-900 p-6">
         <h1 class="font-sans text-2xl font-bold text-white">Prompt</h1>
-        <div class="mt-6 max-w-screen-md grid grid-cols-4 gap-4">
+        <div class="mt-6 grid max-w-screen-md grid-cols-4 gap-4 border border-red-400">
             <div
-                class="bg-blue-900 flex flex-col hover:bg-blue-800 active:bg-blue-700 items-center justify-center rounded-lg py-6"
+                class="flex flex-col items-center justify-center rounded-lg bg-blue-900 py-6 hover:bg-blue-800 active:bg-blue-700"
                 @click="createRequest('refactor all parts of this code')"
             >
                 <img :src="refactorIcon" alt="Refactor Icon" class="h-16 w-16 object-contain" />
                 <p class="mt-2 font-bold text-white">Refactor</p>
             </div>
             <div
-                class="bg-blue-900 hover:bg-blue-800 active:bg-blue-700 flex flex-col items-center justify-center rounded-lg py-4"
+                class="flex flex-col items-center justify-center rounded-lg bg-blue-900 py-4 hover:bg-blue-800 active:bg-blue-700"
                 @click="createRequest('explain all parts of this code')"
             >
                 <img :src="explainIcon" alt="Explain Icon" class="h-16 w-16 object-contain" />
                 <p class="mt-2 font-bold text-white">Explain</p>
             </div>
             <div
-                class="bg-blue-900 hover:bg-blue-800 active:bg-blue-700 flex flex-col items-center justify-center rounded-lg py-4"
+                class="flex flex-col items-center justify-center rounded-lg bg-blue-900 py-4 hover:bg-blue-800 active:bg-blue-700"
                 @click="createRequest('debug all lines of this code')"
             >
                 <img :src="debugIcon" alt="Debug Icon" class="h-16 w-16 object-contain" />
@@ -25,29 +25,44 @@
             </div>
 
             <div
-                class="bg-blue-900 hover:bg-blue-800 active:bg-blue-700 flex flex-col items-center justify-center rounded-lg py-4"
+                class="flex flex-col items-center justify-center rounded-lg bg-blue-900 py-4 hover:bg-blue-800 active:bg-blue-700"
                 @click="createStreamRequest('')"
             >
                 <img :src="customIcon" alt="Custom Icon" class="h-16 w-16 object-contain" />
                 <p class="mt-2 font-bold text-white">Custom Prompt</p>
             </div>
+        </div>
+        <div
+            id="alternative_options_container"
+            class="my-4 flex justify-between w-auto max-w-screen-md border border-green-500"
+        >
             <a href="https://forms.gle/WovhUia6eJQ8NeSW6">
                 <div
-                    class="relative w-auto h-8 bg-gray-800 text-gray-100 top-2 m-auto px-4 pt-1 rounded-lg hover:cursor-pointer hover:bg-gray-600"
+                    class="h-12 w-56 rounded-lg bg-gray-800 px-4 pt-3 text-center text-gray-100 hover:cursor-pointer hover:bg-gray-600"
                 >
                     LEAVE FEEDBACK HERE
                 </div>
             </a>
+            <div
+                id="control_panel"
+                class="h-12 w-auto border border-blue-500 px-6 pt-3 text-center text-gray-900 bg-yellow-500 hover:bg-yellow-600"
+                @click="toggleSettingsVisibility"
+            >
+                SETTINGS
+            </div>
         </div>
+        <AppSettings :visible="settingsVisible" />
     </div>
 </template>
 
 <script lang="js">
-import { mapActions } from 'pinia';
+import { mapActions, mapWritableState } from 'pinia';
 import { useDataStore } from '@/stores/data.js';
 import { storeIcons } from '@/helpers/helper.js';
+import AppSettings from "@/components/Settings.vue"
 export default {
-  name: 'CodePrompt',
+    name: 'CodePrompt',
+    components: {AppSettings},
   props: {
   },
 
@@ -58,6 +73,9 @@ export default {
       explainIcon: '',
       customIcon:''
     };
+    },
+    computed: {
+    ...mapWritableState(useDataStore, ['settingsVisible']),
   },
   mounted() {
     const { debug_icon, refactor_icon, explain_icon, custom_icon } = storeIcons();
@@ -68,7 +86,15 @@ export default {
 
   },
   methods: {
-    ...mapActions(useDataStore, ['createRequest', 'createStreamRequest'])
-  }
+      ...mapActions(useDataStore, ['createRequest', 'createStreamRequest']),
+      toggleSettingsVisibility() {
+        console.log("Toggling settings!", this.settingsVisible)
+          if (this.settingsVisible) {
+              this.settingsVisible = false;
+          } else {
+              this.settingsVisible = true;
+        }
+      }
+    },
 };
 </script>

@@ -6,7 +6,11 @@ import { devEndpoint, prodEndpoint } from '../helpers/endpoint';
 
 export const useDataStore = defineStore('data', {
     state: () => {
-        return { codeInputValue: '', backendResponse: 'RefactorAI will respond here!' };
+        return {
+            codeInputValue: '',
+            backendResponse: 'RefactorAI will respond here!',
+            settingsVisible: false,
+        };
     },
     // could also be defined as
     // state: () => ({ count: 0 })
@@ -51,6 +55,13 @@ export const useDataStore = defineStore('data', {
                      * If a token contains an apostrophe, we must connect it to the previous letter.
                      * Which means we must delete the previous strings whitespace. We can just use
                      * trimEnd() on the response string.
+                     *
+                     * If the tokens are ```, this indicates code. Generate some whitespace before
+                     * these characters and after the final ``` characters.
+                     *
+                     * How will we format the code? This is all a whitespace placement issue.
+                     * I'll look for libraries to handle this. If I can't find them, I'll
+                     * create my own.
                      */
                     const trimmedData = message.data.trimStart();
                     console.log(trimmedData);
