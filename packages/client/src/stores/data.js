@@ -10,6 +10,10 @@ export const useDataStore = defineStore('data', {
             codeInputValue: '',
             backendResponse: 'RefactorAI will respond here!',
             settingsVisible: false,
+            toggleableFeatures: {
+                chatStreaming: true,
+                modelSwitching: true,
+            },
         };
     },
     // could also be defined as
@@ -74,17 +78,16 @@ export const useDataStore = defineStore('data', {
                         response = `${response} ${trimmedData}`;
                     }
                     this.backendResponse = response;
+                    this.writeToMemento(this.$state);
                 });
-                this.writeToMemento(this.$state);
             } catch (error) {
                 console.error('There was a problem with creating the stream request!\n', error);
             }
         },
         async writeToMemento() {
             try {
-                // console.log('Writing to memento:', this.$state);
-                // Write to extension package, then write to Memento from there.
-                // console.log('Writing to Memento:', this.$state);
+                console.log('Writing to Memento:');
+                console.log(this.$state);
                 // eslint-disable-next-line no-undef
                 await vscode.postMessage({
                     message: JSON.stringify(this.$state),

@@ -46,6 +46,8 @@ export default {
             // console.log('backendResponse: ', message.backendResponse);
             this.codeInputValue = message.codeInputValue;
             this.backendResponse = message.backendResponse;
+            this.toggleableFeatures = message.toggleableFeatures;
+            console.log('Set state from memento: ', message);
         });
         this.getLastState();
     },
