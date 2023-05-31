@@ -11,8 +11,8 @@ export const useDataStore = defineStore('data', {
             backendResponse: 'RefactorAI will respond here!',
             settingsVisible: false,
             toggleableFeatures: {
-                chatStreaming: true,
-                modelSwitching: true,
+                dataStreaming: false,
+                modelSwitching: false,
             },
         };
     },
@@ -53,30 +53,25 @@ export const useDataStore = defineStore('data', {
                 axios.post(`${endpoint}/api/stream`, {
                     prompt: `${prompt}: ${this.codeInputValue}`,
                 });
-                let response = '';
+                let response = [];
                 events.addEventListener('message', (message) => {
-                    /**
-                     * If a token contains an apostrophe, we must connect it to the previous letter.
-                     * Which means we must delete the previous strings whitespace. We can just use
-                     * trimEnd() on the response string.
-                     *
-                     * If the tokens are ```, this indicates code. Generate some whitespace before
-                     * these characters and after the final ``` characters.
-                     *
-                     * How will we format the code? This is all a whitespace placement issue.
-                     * I'll look for libraries to handle this. If I can't find them, I'll
-                     * create my own.
-                     */
-                    const trimmedData = message.data.trimStart();
-                    console.log(trimmedData);
-                    if (trimmedData.includes('Event stream established!') || trimmedData.includes('[DONE]')) {
+                    // TODO: Replace this with just message.data 
+                    // const trimmedData = message.data.trimStart();
+                    // console.log(trimmedData);
+                    // if (trimmedData.includes('Event stream established!') || trimmedData.includes('[DONE]')) {
+                    //     return;
+                    // } else if (trimmedData.match(/[^\w\s]/)) {
+                    //     response = `${response.trimEnd()}${trimmedData}`;
+                    //     console.log('response: \n', response);
+                    // } else {
+                    //     response = `${response} ${trimmedData}`;
+                    // }
+
+                    if (message.data.includes('Event stream established!') || message.data.includes('[DONE]')) {
                         return;
-                    } else if (trimmedData.match(/[^\w\s]/)) {
-                        response = `${response.trimEnd()}${trimmedData}`;
-                        console.log('response: \n', response);
-                    } else {
-                        response = `${response} ${trimmedData}`;
-                    }
+                    } 
+                    response += message.data
+                    console.log('RESPONSE: ', response)
                     this.backendResponse = response;
                     this.writeToMemento(this.$state);
                 });

@@ -4,7 +4,7 @@ import * as functions from 'firebase-functions';
 // // https://firebase.google.com/docs/functions/typescript
 //
 export const helloWorld = functions.https.onRequest((request, response) => {
-    functions.logger.info('Hello logs!', { structuredData: true });
+    functions.logger.info('Hello logs!', {structuredData: true});
     response.set('Access-Control-Allow-Origin', '*');
     response.send('{"message":"Hello from Firebase Functions!"}');
 });
@@ -23,5 +23,5 @@ export const makeUppercase = functions.firestore.document('/messages/{documentId
     // You must return a Promise when performing asynchronous tasks inside a Functions such as
     // writing to Firestore.
     // Setting an 'uppercase' field in Firestore document returns a Promise.
-    return snap.ref.set({ uppercase }, { merge: true });
+    return snap.ref.set({uppercase}, {merge: true});
 });

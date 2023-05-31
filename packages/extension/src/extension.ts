@@ -13,14 +13,14 @@ export function activate(context: vscode.ExtensionContext) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with registerCommand
     // The commandId parameter must match the command field in package.json
-    let kindDisposable = vscode.commands.registerCommand(`vue-3-vscode-webview.createFlow`, () => {
+    let kindDisposable = vscode.commands.registerCommand('vue-3-vscode-webview.createFlow', () => {
         // The code you place here will be executed every time your command is executed
         // Display a message box to the user
         // vscode.window.showInformationMessage('Opening vue generated webview inside extension!');
         const panel = prepareWebView(context);
 
         const storageService = LocalStorageService(context.workspaceState);
-        storageService.setValue('backendResponse', "Hi, I'm RefactorAI. How can I help you today?");
+        storageService.setValue('backendResponse', 'Hi, I\'m RefactorAI. How can I help you today?');
         storageService.setValue('codeInputValue', 'Type here...');
         panel.webview.onDidReceiveMessage(
             async ({ message }) => {
