@@ -2,8 +2,8 @@
     "name": "refactorai",
     "displayName": "RefactorAI",
     "publisher": "DanialHasan",
-    "description": "RefactorAI is a VScode extension that uses natural language processing to help developers refactor, debug, and explain their code, improving code quality and solving complex programming problems.",
-    "version": "0.2.2",
+    "description": "Improve code quality with AI. Refactor, debug, and explain your code with RefactorAI.",
+    "version": "0.2.3",
     "engines": {
         "vscode": "^1.63.0"
     },

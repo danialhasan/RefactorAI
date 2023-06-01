@@ -38,7 +38,7 @@ RefactorAI is a new tool, and evolves every week. Here's a rough roadmap:
 
 -   [ ] Allow users to sign in with Gitub
 
--   [ ] Enable streaming mode so responses come in word-by-word and not all at once
+-   [x] Enable streaming mode so responses come in word-by-word and not all at once
 
 -   [ ] Allow users to use their own API keys
 
@@ -66,6 +66,10 @@ RefactorAI does not have any configurable settings at this time.
 There are no known issues with RefactorAI at this time. If you encounter any issues, please report them to this [feedback form](https://forms.gle/WovhUia6eJQ8NeSW6)
 
 ## Release Notes
+
+### 0.2.3
+
+-   Add settings to allow users to opt in/out of new features 
 
 ### 0.2.2
 
