@@ -1,5 +1,5 @@
 <template>
-    <div class="h-[480px] w-[350px] rounded-md bg-gray-800 text-white" :class="visible ? 'block' : 'hidden'">
+    <div class="h-[280px] w-[350px] rounded-md bg-gray-800 text-white" :class="visible ? 'block' : 'hidden'">
         <h1 class="px-8 pt-8 pb-4 text-3xl font-bold">
             Settings
         </h1>

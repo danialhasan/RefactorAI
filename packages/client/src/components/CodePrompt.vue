@@ -3,7 +3,7 @@
         <h1 class="font-sans text-2xl font-bold text-white">
             Prompt
         </h1>
-        <div class="mt-6 grid max-w-screen-md grid-cols-4 gap-4 border border-red-400">
+        <div class="mt-6 grid max-w-screen-md grid-cols-4 gap-4  ">
             <div class="flex flex-col items-center justify-center rounded-lg bg-blue-900 py-6 hover:bg-blue-800 active:bg-blue-700"
                 @click="toggleableFeatures.dataStreaming ? createStreamRequest('refactor all parts of this code') : createRequest('refactor all parts of this code')">
                 <img :src="refactorIcon" alt="Refactor Icon" class="h-16 w-16 object-contain">
@@ -12,14 +12,14 @@
                 </p>
             </div>
             <div class="flex flex-col items-center justify-center rounded-lg bg-blue-900 py-4 hover:bg-blue-800 active:bg-blue-700"
-                @click="createRequest('explain all parts of this code')">
+                @click="toggleableFeatures.dataStreaming ? createStreamRequest('explain all parts of this code') : createRequest('explain all parts of this code')">
                 <img :src="explainIcon" alt="Explain Icon" class="h-16 w-16 object-contain">
                 <p class="mt-2 font-bold text-white">
                     Explain
                 </p>
             </div>
             <div class="flex flex-col items-center justify-center rounded-lg bg-blue-900 py-4 hover:bg-blue-800 active:bg-blue-700"
-                @click="createRequest('debug all lines of this code')">
+                @click="toggleableFeatures.dataStreaming ? createStreamRequest('debug all parts of this code') : createRequest('debug all parts of this code')">
                 <img :src="debugIcon" alt="Debug Icon" class="h-16 w-16 object-contain">
                 <p class="mt-2 font-bold text-white">
                     Debug
@@ -27,15 +27,14 @@
             </div>
 
             <div class="flex flex-col items-center justify-center rounded-lg bg-blue-900 py-4 hover:bg-blue-800 active:bg-blue-700"
-                @click="createStreamRequest('')">
+                @click="toggleableFeatures.dataStreaming ? createStreamRequest('') : createRequest('')">
                 <img :src="customIcon" alt="Custom Icon" class="h-16 w-16 object-contain">
                 <p class="mt-2 font-bold text-white">
                     Custom Prompt
                 </p>
             </div>
         </div>
-        <div id="alternative_options_container"
-            class="my-4 flex justify-between w-auto max-w-screen-md border border-green-500">
+        <div id="alternative_options_container" class="my-4 flex justify-between w-auto max-w-screen-md ">
             <a href="https://forms.gle/WovhUia6eJQ8NeSW6">
                 <div
                     class="h-12 w-56 rounded-lg bg-gray-800 px-4 pt-3 text-center text-gray-100 hover:cursor-pointer hover:bg-gray-600">
@@ -43,7 +42,7 @@
                 </div>
             </a>
             <div id="control_panel"
-                class="h-12 w-auto border border-blue-500 px-6 pt-3 text-center text-gray-900 bg-yellow-500 hover:bg-yellow-600"
+                class="h-12 w-auto px-6 pt-3 text-center text-gray-900 bg-yellow-500 hover:bg-yellow-600"
                 @click="toggleSettingsVisibility">
                 SETTINGS
             </div>

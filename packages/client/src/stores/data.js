@@ -16,15 +16,13 @@ export const useDataStore = defineStore('data', {
             },
         };
     },
-    // could also be defined as
-    // state: () => ({ count: 0 })
     actions: {
         async createRequest(prompt) {
             try {
                 console.log('NODE_ENV: ', process.env.NODE_ENV);
                 console.log('TEST ENV VAR: ', process.env.MY_ENV_VAR_1);
                 // Prompt example: "Refactor: let x = 5; console.log('this is x:', x)"
-                const endpoint = prodEndpoint;
+                const endpoint = devEndpoint;
                 this.backendResponse = 'Thinking...';
                 console.log(`${endpoint}/api`);
                 const response = await axios.post(`${endpoint}/api`, {
@@ -39,37 +37,21 @@ export const useDataStore = defineStore('data', {
         },
         async createStreamRequest(prompt) {
             try {
-                // console.log('NODE_ENV: ', process.env.NODE_ENV);
-                // console.log('TEST ENV VAR: ', process.env.MY_ENV_VAR_1);
-                // Prompt example: "Refactor: let x = 5; console.log('this is x:', x)"
                 const endpoint = devEndpoint;
                 this.backendResponse = 'Thinking...';
-                // set up connection, then send POST request
-
-                // const response = await axios.post(`${endpoint}/api/stream`, {
-                //     prompt: `${prompt}: ${this.codeInputValue}`,
-                // });
                 const events = new EventSource(`${endpoint}/api/stream`);
                 axios.post(`${endpoint}/api/stream`, {
                     prompt: `${prompt}: ${this.codeInputValue}`,
                 });
                 let response = [];
                 events.addEventListener('message', (message) => {
-                    // TODO: Replace this with just message.data 
-                    // const trimmedData = message.data.trimStart();
-                    // console.log(trimmedData);
-                    // if (trimmedData.includes('Event stream established!') || trimmedData.includes('[DONE]')) {
-                    //     return;
-                    // } else if (trimmedData.match(/[^\w\s]/)) {
-                    //     response = `${response.trimEnd()}${trimmedData}`;
-                    //     console.log('response: \n', response);
-                    // } else {
-                    //     response = `${response} ${trimmedData}`;
-                    // }
-
-                    if (message.data.includes('Event stream established!') || message.data.includes('[DONE]')) {
+                    if (message.data.includes('Event stream established!')) {
                         return;
                     } 
+                    if (message.data.includes('[DONE]')) {
+                        response = [];
+                        return;
+                    }
                     response += message.data
                     console.log('RESPONSE: ', response)
                     this.backendResponse = response;
