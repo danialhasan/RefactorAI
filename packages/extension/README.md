@@ -67,6 +67,10 @@ There are no known issues with RefactorAI at this time. If you encounter any iss
 
 ## Release Notes
 
+### 0.2.4
+
+-   Fix API bug 
+
 ### 0.2.3
 
 -   Add settings to allow users to opt in/out of new features 

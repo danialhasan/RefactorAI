@@ -20,6 +20,7 @@ export const useDataStore = defineStore('data', {
         async createRequest(prompt) {
             try {
                 const endpoint = prodEndpoint;
+                // Prompt example: "Refactor: let x = 5; console.log('this is x:', x)"
                 this.backendResponse = 'Thinking...';
                 console.log(`${endpoint}/api`);
                 const response = await axios.post(`${endpoint}/api`, {
