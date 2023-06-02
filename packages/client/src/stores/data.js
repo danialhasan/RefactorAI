@@ -19,10 +19,7 @@ export const useDataStore = defineStore('data', {
     actions: {
         async createRequest(prompt) {
             try {
-                console.log('NODE_ENV: ', process.env.NODE_ENV);
-                console.log('TEST ENV VAR: ', process.env.MY_ENV_VAR_1);
-                // Prompt example: "Refactor: let x = 5; console.log('this is x:', x)"
-                const endpoint = devEndpoint;
+                const endpoint = prodEndpoint;
                 this.backendResponse = 'Thinking...';
                 console.log(`${endpoint}/api`);
                 const response = await axios.post(`${endpoint}/api`, {
@@ -37,7 +34,7 @@ export const useDataStore = defineStore('data', {
         },
         async createStreamRequest(prompt) {
             try {
-                const endpoint = devEndpoint;
+                const endpoint = prodEndpoint;
                 this.backendResponse = 'Thinking...';
                 const events = new EventSource(`${endpoint}/api/stream`);
                 axios.post(`${endpoint}/api/stream`, {
