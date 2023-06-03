@@ -6,7 +6,7 @@ import { LocalStorageService } from './helpers/localStorageService';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
+    // Use the console to output diagnostic information (// console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
 
     // vscode.window.showInformationMessage('Congratulations, your extension "vue-3-vscode-webview" is now active!');
@@ -20,7 +20,7 @@ export function activate(context: vscode.ExtensionContext) {
         const panel = prepareWebView(context);
 
         const storageService = LocalStorageService(context.workspaceState);
-        storageService.setValue('backendResponse', 'Hi, I\'m RefactorAI. How can I help you today?');
+        storageService.setValue('backendResponse', "Hi, I'm RefactorAI. How can I help you today?");
         storageService.setValue('codeInputValue', 'Type here...');
         panel.webview.onDidReceiveMessage(
             async ({ message }) => {

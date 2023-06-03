@@ -35,15 +35,15 @@ export default {
         ...mapActions(useDataStore, ['writeToMemento']),
         toggleState() {
             if (!this.toggleable) {
-                console.log(`${this.feature} is not toggleable.`);
+                // console.log(`${this.feature} is not toggleable.`);
                 return;
             }
             this.state = !this.state;
             try {
-                console.log('toggling feature ', this.feature, this.settingsVisible);
+                // console.log('toggling feature ', this.feature, this.settingsVisible);
                 this.toggleableFeatures[this.feature] = this.state;
             } catch (error) {
-                console.log('Feature: ', this.feature, this.toggleableFeatures[this.feature]);
+                // console.log('Feature: ', this.feature, this.toggleableFeatures[this.feature]);
                 console.error('ERROR: ', error);
             }
             this.writeToMemento();

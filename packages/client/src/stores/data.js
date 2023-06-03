@@ -14,28 +14,36 @@ export const useDataStore = defineStore('data', {
                 dataStreaming: false,
                 modelSwitching: false,
             },
+            awaitingBackendResponse:false
         };
     },
     actions: {
         async createRequest(prompt) {
+            console.log(`Awaiting backend response: ${this.awaitingBackendResponse}`)
+            if (this.awaitingBackendResponse) return;
             try {
+                this.awaitingBackendResponse = true;
                 const endpoint = prodEndpoint;
-                // Prompt example: "Refactor: let x = 5; console.log('this is x:', x)"
+                console.log('Creating non-stream request to ', endpoint)
                 this.backendResponse = 'Thinking...';
-                console.log(`${endpoint}/api`);
                 const response = await axios.post(`${endpoint}/api`, {
                     prompt: `${prompt}: ${this.codeInputValue}`,
                 });
+                if (response) { console.log(`response status: ${!!response}`); this.awaitingBackendResponse = false; }
                 this.backendResponse = response.data.message.content;
-                console.log('OpenAI Response! ', response);
                 this.writeToMemento(this.$state);
             } catch (error) {
                 console.error('There was a problem creating the non-stream server request!\n', error);
+                this.awaitingBackendResponse = false;
             }
         },
         async createStreamRequest(prompt) {
+            console.log(`Awaiting backend response: ${this.awaitingBackendResponse}`)
+            if (this.awaitingBackendResponse) return;
             try {
+                this.awaitingBackendResponse = true;
                 const endpoint = prodEndpoint;
+                console.log('Creating stream request to ', endpoint)
                 this.backendResponse = 'Thinking...';
                 const events = new EventSource(`${endpoint}/api/stream`);
                 axios.post(`${endpoint}/api/stream`, {
@@ -48,21 +56,23 @@ export const useDataStore = defineStore('data', {
                     } 
                     if (message.data.includes('[DONE]')) {
                         response = [];
+                        this.awaitingBackendResponse = false;
                         return;
                     }
                     response += message.data
-                    console.log('RESPONSE: ', response)
+                    // console.log('RESPONSE: ', response)
                     this.backendResponse = response;
                     this.writeToMemento(this.$state);
                 });
             } catch (error) {
                 console.error('There was a problem with creating the stream request!\n', error);
+                this.awaitingBackendResponse = false;
             }
         },
         async writeToMemento() {
             try {
-                console.log('Writing to Memento:');
-                console.log(this.$state);
+                // console.log('Writing to Memento:');
+                // console.log(this.$state);
                 // eslint-disable-next-line no-undef
                 await vscode.postMessage({
                     message: JSON.stringify(this.$state),

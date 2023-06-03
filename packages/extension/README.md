@@ -67,13 +67,14 @@ There are no known issues with RefactorAI at this time. If you encounter any iss
 
 ## Release Notes
 
-### 0.2.4
+### 0.2.6
 
--   Fix API bug 
+-   Fix API bug
+-   Remove console.logs in devtools
 
 ### 0.2.3
 
--   Add settings to allow users to opt in/out of new features 
+-   Add settings to allow users to opt in/out of new features
 
 ### 0.2.2
 

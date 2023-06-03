@@ -85,7 +85,7 @@ export default {
     methods: {
         ...mapActions(useDataStore, ['createRequest', 'createStreamRequest']),
         toggleSettingsVisibility() {
-            console.log('Toggling settings!', this.settingsVisible);
+            // console.log('Toggling settings!', this.settingsVisible);
             if (this.settingsVisible) {
                 this.settingsVisible = false;
             } else {

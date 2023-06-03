@@ -3,7 +3,7 @@
     "displayName": "RefactorAI",
     "publisher": "DanialHasan",
     "description": "Improve code quality with AI. Refactor, debug, and explain your code with RefactorAI.",
-    "version": "0.2.4",
+    "version": "0.2.6",
     "engines": {
         "vscode": "^1.63.0"
     },

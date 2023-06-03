@@ -33,7 +33,7 @@ export default {
     },
     watch: {
         codeInputValue(newVal) {
-            console.log('New value:', this.codeInputValue);
+            // console.log('New value:', this.codeInputValue);
             this.codeInputValue = newVal;
             this.writeToMemento();
         }

@@ -40,7 +40,7 @@ export default {
             this.codeInputValue = message.codeInputValue;
             this.backendResponse = message.backendResponse;
             this.toggleableFeatures = message.toggleableFeatures;
-            console.log('Set state from memento: ', message);
+            // console.log('Set state from memento: ', message);
         });
         this.getLastState();
     },
@@ -50,9 +50,9 @@ export default {
             this.getFromMemento();
         },
         async runHelloWorld() {
-            console.log('Running helloworldfunction');
+            // console.log('Running helloworldfunction');
             const response = await helloWorld();
-            console.log(response);
+            // console.log(response);
         },
     },
 };
