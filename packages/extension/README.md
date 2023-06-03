@@ -67,6 +67,11 @@ There are no known issues with RefactorAI at this time. If you encounter any iss
 
 ## Release Notes
 
+### 0.2.7
+
+- Add idempotence to prompt buttons
+- Removed Herobrine
+
 ### 0.2.6
 
 -   Fix API bug

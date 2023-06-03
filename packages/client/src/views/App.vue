@@ -15,7 +15,6 @@
 import CodeInput from '@/components/CodeInput.vue';
 import CodeOutput from '@/components/CodeOutput.vue';
 import CodePrompt from '@/components/CodePrompt.vue';
-import { helloWorld } from '@/helpers/firebaseConfig.js';
 import { mapWritableState, mapActions } from 'pinia';
 import { useDataStore } from '@/stores/data.js';
 // import axios from 'axios';
@@ -48,11 +47,6 @@ export default {
         ...mapActions(useDataStore, ['getFromMemento']),
         getLastState() {
             this.getFromMemento();
-        },
-        async runHelloWorld() {
-            // console.log('Running helloworldfunction');
-            const response = await helloWorld();
-            // console.log(response);
         },
     },
 };
